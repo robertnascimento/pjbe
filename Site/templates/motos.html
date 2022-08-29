@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>MOTOS</h2>
+    {% for motorcycle in moto %}
+    <p>Nome: {{motorcycle.tituloMoto}}</p>
+    <p>Preço: {{motorcycle.precoMoto}}</p>
+    <p>Ano do Carro: {{motorcycle.anoMoto}}</p>
+    <p>Marca do Carro: {{motorcycle.marcaMoto}}</p>
+    <p>Combustível: {{motorcycle.combustivelMoto}}</p>
+    <p>Tipo: {{motorcycle.tipoMoto}}</p>
+    <p>Data de cadastro: {{motorcycle.created_atMoto}}</p>
+    <p>Data de atualização dos dados: {{motorcycle.updated_atMoto}}</p>
+    {% empty %}
+    <p>NÃO EXISTE MOTOS CADASTRADAS</p>
+    {% endfor %}
+    
+</body>
+</html>

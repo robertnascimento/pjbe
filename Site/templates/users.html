@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>USERS</h2>
+    {% for usr in usuario %}
+    <p>Nome: {{usr.nome}}</p>
+    <p>Idade: {{usr.idade}}</p>
+    <p>CPF: {{usr.cpf}}</p>
+    <p>Data de cadastro: {{usr.created_at}}</p>
+    <p>Data de atualização dos dados: {{usr.updated_at}}</p>
+    {% empty %}
+    <p>NÃO EXISTE USER CADASTRADOS</p>
+    {% endfor %}
+    
+</body>
+</html>

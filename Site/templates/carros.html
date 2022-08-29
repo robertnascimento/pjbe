@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/static/css/estilo.css' %}"> 
+</head>
+<body>
+
+    <p><a href="{% url 'cadcar' %}">CAD CARROS</a></p>
+
+    <div class="container">
+        {% for crr in carro %}
+        <div>
+            <th scope="col">NOME</th>
+            <p>{{crr.tituloCarro}}</p>
+        </div>
+        <div>
+            <th scope="col">PREÇO</th>
+            <p>{{crr.precoCarro}}</p>
+        </div>
+        <div>
+            <th scope="col">ANO</th>
+            <p>{{crr.anoCarro}}</p>
+        </div>
+        <div>
+            <th scope="col">MARCA</th>
+            <p>{{crr.marcaCarro}}</p>
+        </div>
+        
+        <div>
+            <th scope="col">COMBUSTÍVEL</th>
+            <p>{{crr.combustivelCarro}}</p>
+        </div>
+        
+        <div>
+            <th scope="col">TIPO</th>
+            <p>{{crr.tipoCarro}}</p>
+        </div>
+        
+        <div>
+            <th scope="col">DATA DE ANÚNCIO</th>
+            <p>Data de cadastro: {{crr.created_atCarro}}</p>
+        </div>
+        <div>
+            <th scope="col">ATUALIZAÇÃO</th>
+            <p>Data de atualização dos dados: {{crr.updated_atCarro}}</p>
+        </div>
+
+    </div>
+
+
+    {% empty %}
+    <p>NÃO EXISTE CARROS CADASTRADOS</p>
+    {% endfor %}
+    
+</body>
+</html>
