@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path 
-from core.views import caduser, bestcars , motos, carros, users, cadcar, cadmoto
+from core.views import removercar, removeruser, removermoto, caduser, bestcars , motos, carros, users, cadcar, cadmoto, editmoto, editcar, edituser
 
 urlpatterns = [
+    path('editmoto/<int:id>/',editmoto, name='editmoto'),
+    path('editcar/<int:id>/',editcar, name='editcar'),
+    path('removercar/<int:id>/',removercar, name='removercar'),
+    path('removermoto/<int:id>/',removermoto, name='removermoto'),
+    path('removeruser/<int:id>/',removeruser, name='removeruser'),
+    path('edituser/<int:id>/',edituser, name='edituser'),
     path('carros/',carros, name='carros'),
     path('cadcar/',cadcar, name='cadcar'),
     path('cadmoto/',cadmoto, name='cadmoto'),

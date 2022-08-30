@@ -4,7 +4,7 @@ from .models import User,Carro,Moto
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['nome','idade','cpf']
+        fields = ['nome','idade','cpf','sexo']
 
 class CarroForm(ModelForm):
     class Meta:

@@ -1,23 +1,64 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <title>BEST CARS</title>
 </head>
+
 <body>
 
-    <h2>USERS</h2>
-    {% for usr in usuario %}
-    <p>Nome: {{usr.nome}}</p>
-    <p>Idade: {{usr.idade}}</p>
-    <p>CPF: {{usr.cpf}}</p>
-    <p>Data de cadastro: {{usr.created_at}}</p>
-    <p>Data de atualização dos dados: {{usr.updated_at}}</p>
-    {% empty %}
-    <p>NÃO EXISTE USER CADASTRADOS</p>
-    {% endfor %}
-    
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NOME</th>
+          <th scope="col">IDADE</th>
+          <th scope="col">SEXO</th>
+          <th scope="col">CPF</th>
+          <th scope="col">CRIADO EM</th>
+          <th scope="col">ATUALIZAÇÃO</th>
+          <th scope="col">EDITAR</th>
+          <th scope="col">REMOVER</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for usr in usuario %}
+
+        <tr>
+          <th scope="row">{{usr.id}}</th>
+          <td>{{usr.nome}}</td>
+          <td>{{usr.idade}}</td>
+          <td>{{usr.sexo}}</td>
+          <td>{{usr.cpf}}</td>
+          <td>{{usr.created_at}}</td>
+          <td>{{usr.updated_at}}</td>
+          <td><a href="{% url 'edituser' usr.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+          <td><a href="{% url 'removeruser' usr.id %}"><i class="fa-solid fa-circle-xmark"></i></a></td>
+        </tr>
+
+
+
+        {% empty %}
+        <p>NÃO EXISTE USUÁRIOS CADASTRADOS</p>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  
+  <p><a href="{% url 'caduser' %}">CADASTRAR USUÁRIO</a><a href="{% url 'bestcars' %}">HOME</a></p>
+
+  <script src="https://kit.fontawesome.com/1e09d9b871.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
