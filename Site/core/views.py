@@ -12,7 +12,7 @@ def users(request):
     contexto = {
         'usuario': usr
     }
-    return render(request, 'users.html', contexto)
+    return render(request, 'users.html', contexto,)
 
 def caduser(request):
     form = UserForm(request.POST or None)
@@ -87,6 +87,9 @@ def removercar(request, id):
 
 def motos(request):
     motorcycle = Moto.objects.all()
+    search = request.GET.get('search')
+    if search:
+        motorcycle = motorcycle.filter(tituloMoto__icontains=search)
     contexto = {
         'moto': motorcycle
     }
